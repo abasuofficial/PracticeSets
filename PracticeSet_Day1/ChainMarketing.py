@@ -38,8 +38,7 @@ if ch == 'N':
 
 elif ch == 'Y':
     ChildsName = input()
-    ChildsName = ChildsName.replace(",", " ")
-    ChildList = list(ChildsName.split(" "))
+    ChildList = list(ChildsName.split(","))
 
     counter = 0
     for i in ChildList:
