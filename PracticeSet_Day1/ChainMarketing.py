@@ -40,9 +40,6 @@ elif ch == 'Y':
     ChildsName = input()
     ChildsName = ChildsName.replace(",", " ")
     ChildList = list(ChildsName.split(" "))
-    
-else:
-    print("INVALID CHOICE")
 
     counter = 0
     for i in ChildList:
@@ -53,4 +50,7 @@ else:
     print(f"{ParentName}: {500*counter}INR")
     for i in range(len(ChildList)):
         print(f"{ChildList[i]}: 250INR")
+        
+else:
+    print("INVALID CHOICE")
     
