@@ -40,6 +40,9 @@ elif ch == 'Y':
     ChildsName = input()
     ChildsName = ChildsName.replace(",", " ")
     ChildList = list(ChildsName.split(" "))
+    
+else:
+    print("INVALID CHOICE")
 
     counter = 0
     for i in ChildList:
