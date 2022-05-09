@@ -1,0 +1,241 @@
+WindowManager:
+    MyGridGUIK:
+    MainMenu:
+    EncodeMenu:
+    DecodeMenu:
+    About:
+
+<MyGridGUIK>:
+    name: "home"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Image:
+            source: "resources/logo.jpg"
+        Image:
+            source: "resources/steg.png"
+        Button:
+            text: "CLICK HERE FOR MAIN MENU"
+            bold: True
+            font_size: 20
+            background_color: (0,0,0,0)
+            on_release:
+            	app.root.current= "mainmenu"
+            	root.manager.transition.direction = "up"
+            
+
+<MainMenu>:
+    name: "mainmenu"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Image:
+            source: "resources/mainmenu.png"
+        Button:
+            text: "ENCODE"
+            bold: True
+            font_size: 25
+            background_color: (0,0,0,0)
+            size_hint: 0.5, 0.4
+            on_release:
+                app.root.current = "encodemenu"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "DECODE"
+            bold: True
+            font_size: 25
+            background_color: (0,0,0,0)
+            size_hint: 0.5, 0.4
+            on_release:
+                app.root.current = "decodemenu"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "ABOUT"
+            bold: True
+            font_size: 25
+            background_color: (0,0,0,0)
+            size_hint: 0.5, 0.4
+            on_release:
+                app.root.current = "aboutmenu"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "EXIT"
+            bold: True
+            font_size: 25
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.4
+            on_release:
+            	app.get_running_app().stop()
+        Label:
+            text: ""
+            font_size: 5
+            size_hint: 0.5, 0.3
+        
+            
+            
+<EncodeMenu>:
+    name: "encodemenu"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Image:
+            source: "resources/encode.png"
+        GridLayout:
+            cols:2
+            Label:
+                text: "Enter Image Path: "
+                font_size: 18
+                bold: True
+            TextInput:
+                background_color: (236,236,236, 0.1)
+                foreground_color: (255, 255, 255, 1)
+                multiline:False
+                padding: [70, 25, 70, 0]
+                hint_text:'Click to Enter Path'
+                id: encodeimagepath
+            Label:
+                text: "Enter The Message: "
+                font_size: 18
+                bold: True
+            TextInput:
+                background_color: (236,236,236, 0.1)
+                foreground_color: (255, 255, 255, 1)
+                multiline:True
+                padding: [70, 25, 70, 0]
+                hint_text:'Click to Enter Message'
+                id: message
+            Label:
+                text: "Enter Output File Name: "
+                font_size: 18
+                bold: True
+            TextInput:
+                background_color: (236,236,236, 0.1)
+                foreground_color: (255, 255, 255, 1)
+                multiline:False
+                padding: [70, 25, 70, 0]
+                hint_text:'Click to Enter File Name'
+                id: filename
+        Label:
+            text: ""
+            font_size: 3
+            size_hint: 0.5, 0.1  
+        Button:
+            text: "ENCODE"
+            bold: True
+            font_size: 21
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.3
+        Button:
+            text: "GO BACK"
+            bold: True
+            font_size: 21
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.3
+            on_release:
+                app.root.current = "mainmenu"
+                root.manager.transition.direction = "right"
+        Label:
+            text: ""
+            font_size: 5
+            size_hint: 0.5, 0.2  
+                
+
+<DecodeMenu>:
+    name: "decodemenu"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Label:
+            text: ""
+            font_size: 3
+            size_hint: 0.5, 0.4
+        Image:
+            source: "resources/decode.png"
+        Label:
+            text: ""
+            font_size: 3
+            size_hint: 0.5, 0.4
+        GridLayout:
+            cols:2
+            Label:
+                text: "Enter Image Path: "
+                font_size: 18
+                bold: True
+            TextInput:
+                background_color: (236,236,236, 0.1)
+                foreground_color: (255, 255, 255, 1)
+                multiline:False
+                padding: [70, 36, 70, 0]
+                hint_text:'Click to Enter Path'
+                id: decodeimagepath
+        Label:
+            text: "This below text has been encoded in the Image:"
+            font_size: 18
+            bold: True
+        TextInput:
+            background_color: (236,236,236, 0.1)
+            foreground_color: (255, 255, 255, 1)
+            multiline:True
+            padding: [70, 25, 70, 0]
+            hint_text:'Click Decode to see'
+        Label:
+            text: ""
+            font_size: 3
+            size_hint: 0.5, 0.2  
+        Button:
+            text: "DECODE"
+            bold: True
+            font_size: 23
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.5
+        Label:
+            text: ""
+            font_size: 3
+            size_hint: 0.5, 0.2
+        Button:
+            text: "GO BACK"
+            bold: True
+            font_size: 23
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.5
+            on_release:
+                app.root.current = "mainmenu"
+                root.manager.transition.direction = "right"
+        Label:
+            text: ""
+            font_size: 5
+            size_hint: 0.5, 0.4
+
+
+<About>:
+    name: "aboutmenu"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Image:
+            source: "resources/about.png"
+        Image:
+            source: ""
+        Label:
+            text: ""
+            font_size: 5
+            size_hint: 0.5, 0.1 
+        GridLayout:
+            cols:2
+            Image:
+                source: ""
+            Image:
+                source: ""
+        Button:
+            text: "GO BACK"
+            bold: True
+            font_size: 21
+            background_color: (0,0,0,1)
+            size_hint: 0.5, 0.5
+            on_release:
+                app.root.current = "mainmenu"
+                root.manager.transition.direction = "right"
+        Label:
+            text: ""
+            font_size: 5
+            size_hint: 0.5, 0.5
